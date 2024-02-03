@@ -109,8 +109,7 @@ body { background-color: $text-color; }
     p:first-child { margin-bottom: 10px; font-weight: 500; }
   }
   .prev-next-container {
-    display: flex;
-    justify-content: space-between;
+    & { display: flex; justify-content: space-between; }
     button {
       & { display: flex; align-items: center; gap: 10px; background: #fff; color: #343333; font-family: Lato, sans-serif; font-size: 18px; font-weight: 400; padding: 9px 25px; outline: none; border: none; cursor : pointer }
     }
