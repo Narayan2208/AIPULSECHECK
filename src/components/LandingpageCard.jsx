@@ -13,7 +13,7 @@ const LandingpageCard = () => {
     <>
       <Box className="card_parent">
         <div>
-          <video width="50%" height="auto" controls>
+          <video controls className='video'>
             <source
               src="https://40parables-assets.s3.amazonaws.com/bleat-AI-PulseCheck-Intro.mp4"
               type="video/mp4"
@@ -23,7 +23,7 @@ const LandingpageCard = () => {
           {/* <div className='videoplaypause'>WATCH VIDEO</div> */}
         </div>
         <div className="second-child">
-          <div>
+          <div className="second-child-first-child">
             <p>
               <span>
                 Is your church embracing <br /> impact

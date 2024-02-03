@@ -1,129 +1,118 @@
-$card-color: #fff;
-$card-font-color: rgb(110, 12, 249);
-$text-color: #343333;
+$card-color: #fff; $card-font-color: rgb(110, 12, 249); $text-color: #343333;
 @mixin display($display, $alignItems, $justifycontent) {
-  display: $display;
-  align-items: $alignItems;
-  justify-content: $justifycontent;
+  display: $display; align-items: $alignItems; justify-content: $justifycontent;
 }
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Lato, sans-serif;
-}
+body { background-color: $text-color; }
+* { padding: 0; margin: 0; box-sizing: border-box; font-family: Lato, sans-serif; }
 .navbarSecondBox {
-  @include display(flex, center, center);
-  gap: 18em;
-  background-color: $card-color;
-  padding: 20px;
-  img:nth-child(1) {
-    width: 110px;
+  
+  &{ @include display(flex, center, center); gap: 18em; background-color: $card-color; padding: 20px; }
+
+  img:nth-child(1) { width: 110px}
+  img:nth-child(3) { width: 60px; }
+  p { font-size: 2em; font-weight: 600; text-wrap: nowrap; }
+  @media (min-width: 510px) and (max-width: 631px) {
+    gap: 7em;
+    p { font-size: 1em; text-wrap: nowrap; }
   }
-  img:nth-child(3) {
-    width: 60px;
+  @media (min-width: 430px) and (max-width: 510px) {
+    gap: 4em;
+    p { font-size: 1em; text-wrap: nowrap; }
   }
-  p {
-    font-size: 2em;
-    font-weight: 600;
+  @media (min-width: 330px) and (max-width: 430px) {
+    gap: 2em;
+    p { font-size: 1em; text-wrap: nowrap; }
+  }
+  @media (min-width: 130px) and (max-width: 330px) {
+    p { font-size: 1em; text-wrap: nowrap; text-align: center; }
+    img { display: none; }
+  }
+  @media (min-width: 631px) and (max-width: 975px) {
+    gap: 10em;
+    p { font-size: 1em; text-wrap: nowrap; }
   }
 }
 .parent {
-  background-color: $text-color;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+ & {  background-color: $text-color; display: flex; flex-direction: column; }
 }
 .card_parent {
-  display: flex;
-  background-color: $card-color;
-  // width: 60%;
-  width: 60em;
-  margin: 1.5em auto;
-  border-radius: 10px;
-  div:nth-child(1) {
-    // width: 100%;
-    width: 70em;
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px 0px 0px 10px;
-    }
-    &.videoplaypause{
-  color : red
- }
-  }
- 
-  .second-child {
-    padding: 1.5em 1em;
-    gap: 1.5em;
-    @include display(flex, _, center);
+  & { display: flex; background-color: $card-color; width: 60em; margin: 1.5em auto; border-radius: 10px; }
+
+  @media only screen and (max-width: 1000px) {
+    width: 70%;
     flex-direction: column;
+  }
+  @media (min-width: 300px) and (max-width: 700px) {
+    width: 90%;
+    flex-direction: column;
+  }
+  div:nth-child(1) {
+    video { width: 100%; height: 100%; object-fit: cover; border-radius: 10px 0px 0px 10px; }
+  }
+
+  .second-child {
+    & { padding: 1.5em 1em; gap: 1.5em; @include display(flex, _, center); flex-direction: column; }
     div:first-child > p {
-      font-size: 2em;
-      font-weight: 600;
-      line-height: 1.3em;
+      & { font-size: 2em; font-weight: 600; line-height: 1.3em; }
     }
-    div {
-      width: 30em;
-    }
-    p > span {
-      color: $card-font-color;
-    }
-    .last-child-of-parrent {
-      @include display(flex, center, _);
-      gap: 3em;
-      font-size: 10px;
-      .timeWithIcon {
-        @include display(flex, center, center);
-        font-size: 15px;
-        font-weight: 600;
-        gap: 2px;
-        span {
-          width: 19px;
+
+    div { width: 30em; }
+    @media only screen and (max-width: 1000px) {
+      gap: 1em;
+      .second-child-first-child {
+       & { width: 100%; text-align: center; }
+        @media (min-width: 130px) and (max-width: 330px) {
+          font-size: 10px;
         }
       }
+    }
+    p > span { color: $card-font-color; }
+    .last-child-of-parrent {
+     & { @include display(flex, center, _); gap: 3em; font-size: 10px; }
+      @media (min-width: 130px) and (max-width: 330px) {
+        flex-direction: column; width: 100%; font-size: 5px;
+      }
+      
+      .timeWithIcon {
+       & { @include display(flex, center, center); font-size: 15px; font-weight: 600; gap: 2px; }
+        span { width: 19px; }
+      }
       .btn {
-        background-color: $card-font-color;
-        color: $card-color;
-        padding: 7px 15px;
-        font-weight: 700;
-        font-size: 15px;
-        &:hover {
-          background-color: rgb(0,164,134);
-          color: $card-color;
-        }
+       & { background-color: $card-font-color; color: $card-color; padding: 7px 15px; font-weight: 700; font-size: 15px; }
+        &:hover { background-color: rgb(0, 164, 134); color: $card-color; }
       }
     }
     .all-paragraphs {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      color: $text-color;
-      font-weight: 300;
-      font-size: 20px;
-      width: 100%;
+    & { display: flex; flex-direction: column; gap: 10px; color: $text-color; font-weight: 300; font-size: 20px; width: 100%; }
+      @media (min-width: 130px) and (max-width: 330px) {
+        font-size: 13px;
+        text-align: center;
+      }
     }
-    .last-div{
-      font-size: 10px;
+    .last-div {
+     & { font-size: 10px; width: 100%; }
     }
   }
 }
 .quizee-card {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 2em;
-  background-color: $card-color;
-  width: 50em;
-  margin: 1.5em auto;
-  border-radius: 10px;
-  padding: 5em;
-.question{
-  p:first-child{
-    margin-bottom: 10px;
+ &{ display: flex; flex-direction: column; text-align: center; gap: 2em; background-color: $card-color; width: 50em;  margin: 1.5em auto; border-radius: 10px; padding: 5em; }
+  @media (min-width: 510px) and (max-width: 1000px) { width: 70%; }
+  @media (min-width: 310px) and (max-width: 510px) {
+    width: 90%;
+    padding: 4em;
+    .question { width: 100%; }
   }
-  
-}
+  @media (max-width: 310px) { width: 95%; }
+ 
+  .question { 
+    font-weight: 500; 
+    p:first-child { margin-bottom: 10px; font-weight: 500; }
+  }
+  .prev-next-container {
+    display: flex;
+    justify-content: space-between;
+    button {
+      & { display: flex; align-items: center; gap: 10px; background: #fff; color: #343333; font-family: Lato, sans-serif; font-size: 18px; font-weight: 400; padding: 9px 25px; outline: none; border: none; cursor : pointer }
+    }
+  }
 }

@@ -7,11 +7,11 @@ import logo2 from "../assets/download (1).png";
 const Navbar = ({ children }) => {
   return (
     <>
-      <Box>
+      <Box sx={{ width: "100%" }}>
         <Box className="navbarSecondBox">
-          <img src={logo1} alt="logo" />
+          <img src={logo1} alt="logo"  />
           <p>AI Pulse Check</p>
-          <img src={logo2} alt="logo" />
+          <img src={logo2} alt="logo"  />
         </Box>
       </Box>
       {children}
